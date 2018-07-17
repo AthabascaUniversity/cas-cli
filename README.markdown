@@ -4,7 +4,7 @@
 ```
 git clone git@git.athabascau.ca:au-cas/cas-cli.git;
 cd cas-cli
-killall /usr/bin/perl ; ./cas-cli.pl 29302 https://login-test.athabascau.ca/cas
+killall /usr/bin/perl ; ./cas-cli.pl 29302 https://cas.yourdomain.com/cas
 ```
 
 
