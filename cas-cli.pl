@@ -34,7 +34,6 @@ $casUrl = "https://cas.example.org:8443/cas" unless defined $casUrl;
     use LWP::UserAgent;
     use HTML::Entities;
     use XML::LibXML;
-    use lib './lib/';
     use Custom::SAML qw(createSaml);
     use threads ('yield',
         'stack_size' => 64 * 4096,
