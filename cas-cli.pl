@@ -136,14 +136,15 @@ $casUrl = "https://cas.example.org:8443/cas" unless defined $casUrl;
             "/text()");
     }
 
-    sub createLinks
-    {
+    sub createLinks {
         my $cgi = shift;
 
         my $samlService = uri_encode("http://localhost:$port/saml");
         my $casService = uri_encode("http://localhost:$port/cas");
-        
-        $cgi->ul($cgi->li([ "<a href=\"$casUrl/login?TARGET=$samlService\">SAML Auth</a>",
+        my $rootService = uri_encode("http://localhost:$port/");
+
+        $cgi->ul($cgi->li([ "<a href=\"$casUrl/logout?service=$rootService\">CAS Logout</a>",
+            "<a href=\"$casUrl/login?TARGET=$samlService\">SAML Auth</a>",
             "<a href=\"$casUrl/login?service=$casService\">CAS Auth</a>" ]));
     }
 
@@ -249,7 +250,7 @@ $casUrl = "https://cas.example.org:8443/cas" unless defined $casUrl;
             else {
                 print $cgi->h1("Error in http call");
                 print createLinks($cgi),
-                print $res->status_line, "\n";
+                    print $res->status_line, "\n";
                 print encode_entities($res->content), "\n";
             }
             print $cgi->end_html;
