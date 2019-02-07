@@ -1,7 +1,7 @@
 # Usage
 
 ```
-git clone git@git.athabascau.ca:au-cas/cas-cli.git;
+git clone https://github.com/AthabascaUniversity/cas-cli.git
 cd cas-cli
 ./cas-cli.pl 29302 https://cas.yourdomain.com/cas
 ```
